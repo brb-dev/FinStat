@@ -37,6 +37,31 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    flavorDimensions += "env"
+
+    productFlavors {
+ 
+        create("dev") {
+            dimension = "env"
+            applicationIdSuffix = ".dev"
+            resValue("string", "app_name", "FinStat Dev")
+            manifestPlaceholders["appAuthRedirectScheme"] = "com.brb.finstat"
+        }
+
+        create("stg") {
+            dimension = "env"
+            applicationIdSuffix = ".stg"
+            resValue("string", "app_name", "FinStat Stg")
+            manifestPlaceholders["appAuthRedirectScheme"] = "com.brb.finstat"
+        }
+ 
+        create("prod") {
+            dimension = "env"
+            resValue("string", "app_name", "FinStat")
+            manifestPlaceholders["appAuthRedirectScheme"] = "com.brb.finstat"
+        }
+    }
 }
 
 flutter {
