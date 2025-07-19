@@ -1,14 +1,29 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+val localProperties = run {
+        val properties = Properties()
+        file("../local.properties").inputStream().use { properties.load(it) }
+        properties
+    }
+
+val flutterMinSdkVersion = localProperties.getProperty("flutter.minSdkVersion")?.toString()?.toInt() ?: 23
+
+val ndkVersion = localProperties.getProperty("flutter.ndkVersion") ?: "27.0.12077973"
+
 android {
     namespace = "com.brb.finstat"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -24,7 +39,7 @@ android {
         applicationId = "com.brb.finstat"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = flutterMinSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

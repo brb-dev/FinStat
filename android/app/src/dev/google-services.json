@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "944826110823",
+    "project_id": "finstat-dev",
+    "storage_bucket": "finstat-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944826110823:android:e690728532fd6abdba55c2",
+        "android_client_info": {
+          "package_name": "com.brb.finstat.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZGObQZUDUn0G1HCuALUNX1WWcc-MWBjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

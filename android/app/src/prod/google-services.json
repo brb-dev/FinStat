@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "447645597381",
+    "project_id": "finstat-prod",
+    "storage_bucket": "finstat-prod.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447645597381:android:5f5c88a9ebfe6b70d0faac",
+        "android_client_info": {
+          "package_name": "com.brb.finstat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRp0mbKPzTf_b1EAmT6Y-jpBEqkoVqpQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447645597381:android:e44bf08dc93d8501d0faac",
+        "android_client_info": {
+          "package_name": "com.brb.finstat.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRp0mbKPzTf_b1EAmT6Y-jpBEqkoVqpQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

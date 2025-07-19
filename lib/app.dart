@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:finstat/application/auth/auth_bloc.dart';
 import 'package:finstat/config.dart';
+import 'package:finstat/infrastructure/core/firebase/remote_config/remote_config_service.dart';
 import 'package:finstat/locator.dart';
 import 'package:finstat/presentation/core/routing/finstat_router.dart';
 import 'package:finstat/presentation/core/routing/finstat_router_observer.dart';
 import 'package:finstat/presentation/core/theme/finstat_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,8 +20,14 @@ Future<void> initialSetup({required Flavor flavor}) async {
 
 void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
   runZonedGuarded(
-    () {
+    () async {
       WidgetsFlutterBinding.ensureInitialized();
+      final config = locator<Config>();
+      await Firebase.initializeApp(
+        name: config.appFlavor.name,
+        options: config.firebaseOptions,
+      );
+      await locator<RemoteConfigService>().init();
       runApp(App(flavor: flavor));
     },
     (error, stackTrace) {
