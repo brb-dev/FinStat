@@ -2,5 +2,6 @@ import 'package:finstat/app.dart';
 import 'package:finstat/config.dart';
 
 Future<void> main() async {
-  handleCall(flavor: Flavor.dev);
+  await initialSetup(flavor: Flavor.dev);
+  runAppWithCrashlyticsAndLocalization(flavor: Flavor.dev);
 }
