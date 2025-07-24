@@ -52,4 +52,12 @@ class BaseStyles {
     height: 1.4,
     color: Colors.black,
   );
+
+  static TextStyle displayLarge = TextStyle(
+    fontFamily: _fontFamily,
+    fontSize: 32,
+    fontWeight: FontWeight.w600,
+    height: 1.4,
+    color: Colors.black,
+  );
 }

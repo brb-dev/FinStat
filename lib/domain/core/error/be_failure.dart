@@ -12,18 +12,12 @@ class BeFailure with _$BeFailure {
 
 extension BeFailureExt on BeFailure {
   String get failureMessage {
-    switch (this) {
-      case _Other():
-        (message) => message.toString();
-      case _ServerError():
-        (message) => message.toString();
-      case _PoorConnection():
-        (a) => 'Poor Internet connection';
-      case _ServerTimeout():
-        (a) => 'Server time out';
-      default:
-        (a) => 'Unknown Error';
-    }
-    return 'Unknown Error';
+    return maybeWhen(
+      other: (message) => message,
+      serverError: (message) => message,
+      poorConnection: () => 'Poor Connection',
+      serverTimeout: () => 'Server time out',
+      orElse: () => 'Unknown Error',
+    );
   }
 }

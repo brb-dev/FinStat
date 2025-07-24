@@ -2,11 +2,13 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:finstat/application/auth/auth_bloc.dart';
+import 'package:finstat/application/user/user_bloc.dart';
 import 'package:finstat/config.dart';
 import 'package:finstat/infrastructure/core/firebase/remote_config/remote_config_service.dart';
 import 'package:finstat/locator.dart';
 import 'package:finstat/presentation/core/routing/finstat_router.dart';
 import 'package:finstat/presentation/core/routing/finstat_router_observer.dart';
+import 'package:finstat/presentation/core/theme/finstat_color.dart';
 import 'package:finstat/presentation/core/theme/finstat_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +52,7 @@ class App extends StatelessWidget {
         BlocProvider<AuthBloc>(
           create: (context) => locator<AuthBloc>()..add(const AuthEvent.init()),
         ),
+        BlocProvider<UserBloc>(create: (context) => locator<UserBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

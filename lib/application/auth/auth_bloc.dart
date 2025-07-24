@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:finstat/domain/auth/entities/user_entity.dart';
+import 'package:finstat/domain/user/entities/user_entity.dart';
 import 'package:finstat/domain/auth/repositories/i_auth_repository.dart';
 import 'package:finstat/domain/core/error/be_failure.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -30,23 +31,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         break;
       case _AuthCheck():
         emit(const AuthState.loading());
-        final Either<BeFailure, Stream<UserEntity?>> isLoggedIn =
-            await authRepository.isLoggedIn();
+        final Either<BeFailure, Stream<User?>> isLoggedIn = await authRepository
+            .isLoggedIn();
         await isLoggedIn.fold(
-          (invalid) async => emit(const AuthState.authenticated()),
-          (userStream) async => userStream.listen(
-            (logged) => logged != null
-                ? emit(AuthState.authenticated())
+          (invalid) async => emit(const AuthState.unauthenticated()),
+          (firebaseUserStream) async => firebaseUserStream.listen(
+            (firebaseUser) => firebaseUser != null
+                ? emit(AuthState.authenticated(firebaseUser: firebaseUser))
                 : emit(const AuthState.unauthenticated()),
           ),
         );
         break;
-      case _SignInWithEmailAndPassword():
-        final response = await authRepository.signInWithEmailAndPassword();
-        await response.fold(
-          (invalid) async => emit(const AuthState.unauthenticated()),
-          (user) async => emit(AuthState.authenticated()),
-        );
+      case _Logout():
+        final failureOrSuccess = await authRepository.logout();
+        await failureOrSuccess.fold((invalid) async {}, (success) async {
+          add(const AuthEvent.authCheck());
+        });
         break;
     }
   }

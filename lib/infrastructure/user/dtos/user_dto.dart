@@ -1,4 +1,4 @@
-import 'package:finstat/domain/auth/entities/user_entity.dart';
+import 'package:finstat/domain/user/entities/user_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user_dto.freezed.dart';

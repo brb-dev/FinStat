@@ -14,6 +14,10 @@ class FinstatColor {
   static Color palleteOne = HexColor.fromHex('#2A9D8F');
   static Color palleteTwo = HexColor.fromHex('#1D4B45');
   static Color palleteThree = HexColor.fromHex('#F4392A');
+
+  static Color white = HexColor.fromHex('#FFFFFF');
+
+  static Color grey = HexColor.fromHex('#B6B6B6');
 }
 
 extension HexColor on Color {

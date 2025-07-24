@@ -17,5 +17,6 @@ TextTheme _textTheme() {
     bodyMedium: BaseStyles.bodyMedium,
     bodySmall: BaseStyles.bodySmall,
     labelLarge: BaseStyles.lebelLarge,
+    displayLarge: BaseStyles.displayLarge,
   );
 }
