@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:finstat/domain/auth/entities/register_entity.dart';
-import 'package:finstat/domain/user/entities/user_entity.dart';
 import 'package:finstat/domain/core/value/value_objects.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

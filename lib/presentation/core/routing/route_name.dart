@@ -6,4 +6,6 @@ abstract class RouteNames {
   static const String main = '/main';
   static const String privacy = '/privacy';
   static const String terms = '/terms';
+  static const String settingAndPreference = '/settingAndPreference';
+  static const String profileInformation = '/profileInformation';
 }

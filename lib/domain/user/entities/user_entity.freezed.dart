@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserEntity {
 
- String get name; String get email; String get loginMethod;
+ String get fullname; String get email; String get loginMethod;
 /// Create a copy of UserEntity
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $UserEntityCopyWith<UserEntity> get copyWith => _$UserEntityCopyWithImpl<UserEnt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.loginMethod, loginMethod) || other.loginMethod == loginMethod));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserEntity&&(identical(other.fullname, fullname) || other.fullname == fullname)&&(identical(other.email, email) || other.email == email)&&(identical(other.loginMethod, loginMethod) || other.loginMethod == loginMethod));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,name,email,loginMethod);
+int get hashCode => Object.hash(runtimeType,fullname,email,loginMethod);
 
 @override
 String toString() {
-  return 'UserEntity(name: $name, email: $email, loginMethod: $loginMethod)';
+  return 'UserEntity(fullname: $fullname, email: $email, loginMethod: $loginMethod)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $UserEntityCopyWith<$Res>  {
   factory $UserEntityCopyWith(UserEntity value, $Res Function(UserEntity) _then) = _$UserEntityCopyWithImpl;
 @useResult
 $Res call({
- String name, String email, String loginMethod
+ String fullname, String email, String loginMethod
 });
 
 
@@ -62,9 +62,9 @@ class _$UserEntityCopyWithImpl<$Res>
 
 /// Create a copy of UserEntity
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? email = null,Object? loginMethod = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? fullname = null,Object? email = null,Object? loginMethod = null,}) {
   return _then(_self.copyWith(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+fullname: null == fullname ? _self.fullname : fullname // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,loginMethod: null == loginMethod ? _self.loginMethod : loginMethod // ignore: cast_nullable_to_non_nullable
 as String,
@@ -152,10 +152,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String email,  String loginMethod)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String fullname,  String email,  String loginMethod)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserEntity() when $default != null:
-return $default(_that.name,_that.email,_that.loginMethod);case _:
+return $default(_that.fullname,_that.email,_that.loginMethod);case _:
   return orElse();
 
 }
@@ -173,10 +173,10 @@ return $default(_that.name,_that.email,_that.loginMethod);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String email,  String loginMethod)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String fullname,  String email,  String loginMethod)  $default,) {final _that = this;
 switch (_that) {
 case _UserEntity():
-return $default(_that.name,_that.email,_that.loginMethod);case _:
+return $default(_that.fullname,_that.email,_that.loginMethod);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -193,10 +193,10 @@ return $default(_that.name,_that.email,_that.loginMethod);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String email,  String loginMethod)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String fullname,  String email,  String loginMethod)?  $default,) {final _that = this;
 switch (_that) {
 case _UserEntity() when $default != null:
-return $default(_that.name,_that.email,_that.loginMethod);case _:
+return $default(_that.fullname,_that.email,_that.loginMethod);case _:
   return null;
 
 }
@@ -208,10 +208,10 @@ return $default(_that.name,_that.email,_that.loginMethod);case _:
 
 
 class _UserEntity extends UserEntity {
-  const _UserEntity({required this.name, required this.email, required this.loginMethod}): super._();
+  const _UserEntity({required this.fullname, required this.email, required this.loginMethod}): super._();
   
 
-@override final  String name;
+@override final  String fullname;
 @override final  String email;
 @override final  String loginMethod;
 
@@ -225,16 +225,16 @@ _$UserEntityCopyWith<_UserEntity> get copyWith => __$UserEntityCopyWithImpl<_Use
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.loginMethod, loginMethod) || other.loginMethod == loginMethod));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserEntity&&(identical(other.fullname, fullname) || other.fullname == fullname)&&(identical(other.email, email) || other.email == email)&&(identical(other.loginMethod, loginMethod) || other.loginMethod == loginMethod));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,name,email,loginMethod);
+int get hashCode => Object.hash(runtimeType,fullname,email,loginMethod);
 
 @override
 String toString() {
-  return 'UserEntity(name: $name, email: $email, loginMethod: $loginMethod)';
+  return 'UserEntity(fullname: $fullname, email: $email, loginMethod: $loginMethod)';
 }
 
 
@@ -245,7 +245,7 @@ abstract mixin class _$UserEntityCopyWith<$Res> implements $UserEntityCopyWith<$
   factory _$UserEntityCopyWith(_UserEntity value, $Res Function(_UserEntity) _then) = __$UserEntityCopyWithImpl;
 @override @useResult
 $Res call({
- String name, String email, String loginMethod
+ String fullname, String email, String loginMethod
 });
 
 
@@ -262,9 +262,9 @@ class __$UserEntityCopyWithImpl<$Res>
 
 /// Create a copy of UserEntity
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? email = null,Object? loginMethod = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? fullname = null,Object? email = null,Object? loginMethod = null,}) {
   return _then(_UserEntity(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+fullname: null == fullname ? _self.fullname : fullname // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,loginMethod: null == loginMethod ? _self.loginMethod : loginMethod // ignore: cast_nullable_to_non_nullable
 as String,

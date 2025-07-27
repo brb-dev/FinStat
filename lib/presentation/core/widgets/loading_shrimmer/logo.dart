@@ -11,7 +11,6 @@ class _Logo extends StatelessWidget {
         imagePath: AppAssets.appIcon,
         width: 50,
         height: 50,
-        //color: AppColor.red,
       ),
     );
   }

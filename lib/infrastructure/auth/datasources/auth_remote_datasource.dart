@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finstat/domain/auth/entities/register_entity.dart';
 import 'package:finstat/domain/core/error/be_failure.dart';
-import 'package:finstat/domain/user/entities/user_entity.dart';
 import 'package:finstat/domain/core/error/exception_handler.dart';
 import 'package:finstat/domain/core/value/value_objects.dart';
 import 'package:firebase_auth/firebase_auth.dart';

@@ -85,8 +85,6 @@ class Responsive extends StatelessWidget {
         return MediaQuery.sizeOf(context).width <= 1300;
       case Breakpoint.xxl:
         return true;
-      default:
-        return false;
     }
   }
 

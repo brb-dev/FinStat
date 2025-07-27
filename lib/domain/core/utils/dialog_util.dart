@@ -1,4 +1,4 @@
-import 'package:finstat/presentation/core/theme/finstat_color.dart';
+import 'package:finstat/presentation/core/widgets/loading_shrimmer/loading_shrimmer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,17 +9,7 @@ class DialogUtil {
       barrierDismissible: false,
       builder: (context) {
         return CupertinoAlertDialog(
-          content: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(
-                width: 50,
-                height: 50,
-                child: CircularProgressIndicator(color: FinstatColor.timeColor),
-              ),
-            ],
-          ),
+          content: Material(child: LoadingShimmer.logo()),
         );
       },
     );

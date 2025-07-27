@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:finstat/domain/user/entities/user_entity.dart';
 import 'package:finstat/domain/auth/repositories/i_auth_repository.dart';
 import 'package:finstat/domain/core/error/be_failure.dart';
 import 'package:firebase_auth/firebase_auth.dart';

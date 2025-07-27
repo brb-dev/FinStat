@@ -1,6 +1,8 @@
+> 🚧 **Work in Progress:** This project is currently under active development. Features may be incomplete or unstable.
+
 # finstat
 
-An app to track all your income, expense, investment personal to you.
+A Flutter-based financial tracker that allows users to log income, expenses, and investments, and view insightful records and visual stats. Built as a demo to showcase capabilities to prospective clients.
 
 ### Require
 

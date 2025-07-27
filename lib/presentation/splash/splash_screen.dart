@@ -5,7 +5,6 @@ import 'package:finstat/domain/core/utils/dialog_util.dart';
 import 'package:finstat/domain/core/utils/error_util.dart';
 import 'package:finstat/presentation/core/routing/finstat_router.gr.dart';
 import 'package:finstat/presentation/core/theme/finstat_color.dart';
-import 'package:finstat/presentation/main_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -66,6 +65,7 @@ class _SplashScreenState extends State<SplashScreen>
                 DialogUtil.showLoadingDialog(context);
                 break;
               case Unauthenticated():
+                context.read<UserBloc>().add(const UserEvent.initialized());
                 context.router.replaceAll([
                   const SplashRoute(),
                   const LandingRoute(),

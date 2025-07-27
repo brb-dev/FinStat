@@ -8,7 +8,6 @@ import 'package:finstat/infrastructure/core/firebase/remote_config/remote_config
 import 'package:finstat/locator.dart';
 import 'package:finstat/presentation/core/routing/finstat_router.dart';
 import 'package:finstat/presentation/core/routing/finstat_router_observer.dart';
-import 'package:finstat/presentation/core/theme/finstat_color.dart';
 import 'package:finstat/presentation/core/theme/finstat_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

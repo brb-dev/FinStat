@@ -17,6 +17,14 @@ class FinstatRouter extends RootStackRouter {
     AutoRoute(page: PrivacyRoute.page, path: RouteNames.privacy),
     AutoRoute(page: TermsRoute.page, path: RouteNames.terms),
     AutoRoute(
+      page: SettingAndPreferenceRoute.page,
+      path: RouteNames.settingAndPreference,
+    ),
+    AutoRoute(
+      page: ProfileInformationRoute.page,
+      path: RouteNames.profileInformation,
+    ),
+    AutoRoute(
       path: RouteNames.main,
       page: MainNavigationRoute.page,
       children: [

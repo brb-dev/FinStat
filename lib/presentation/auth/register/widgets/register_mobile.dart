@@ -24,7 +24,7 @@ class _RegisterMobile extends StatelessWidget {
           previous.isSubmitting != current.isSubmitting,
       builder: (context, snapshot) {
         return Scaffold(
-          appBar: AppBar(
+          appBar: CustomAppbar(
             title: Wrap(
               children: [
                 CustomImageView(

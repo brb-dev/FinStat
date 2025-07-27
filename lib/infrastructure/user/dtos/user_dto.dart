@@ -9,19 +9,23 @@ abstract class UserDto with _$UserDto {
   const UserDto._();
 
   const factory UserDto({
-    @JsonKey(name: 'name', defaultValue: '') required String name,
+    @JsonKey(name: 'fullname', defaultValue: '') required String fullname,
     @JsonKey(name: 'email', defaultValue: '') required String email,
     @JsonKey(name: 'loginMethod', defaultValue: '') required String loginMethod,
   }) = _UserDto;
 
   UserEntity toDomain() {
-    return UserEntity(email: email, loginMethod: loginMethod, name: name);
+    return UserEntity(
+      email: email,
+      loginMethod: loginMethod,
+      fullname: fullname,
+    );
   }
 
   factory UserDto.fromDomain(UserEntity entity) {
     return UserDto(
       email: entity.email,
-      name: entity.name,
+      fullname: entity.fullname,
       loginMethod: entity.loginMethod,
     );
   }

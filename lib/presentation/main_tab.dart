@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:finstat/application/auth/auth_bloc.dart';
 import 'package:finstat/presentation/core/routing/finstat_router.gr.dart';
+import 'package:finstat/presentation/core/widgets/drawer/custom_drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 @RoutePage()
 class MainNavigationScreen extends StatelessWidget {
@@ -54,57 +55,60 @@ class _CustomTabBarState extends State<_CustomTabBar>
           final tabsRouter = AutoTabsRouter.of(context);
           tabController.animateTo(tabsRouter.activeIndex);
 
-          return Column(
-            children: [
-              AppBar(
-                leading: IconButton(
-                  onPressed: () =>
-                      context.read<AuthBloc>().add(AuthEvent.logout()),
-                  icon: Icon(Icons.menu),
-                ),
-                title: Text(
-                  'FinStat',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
+          return Scaffold(
+            key: _scaffoldKey,
+            appBar: AppBar(
+              leading: IconButton(
+                onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+                icon: Icon(Icons.menu),
               ),
-              Expanded(child: child),
-              SafeArea(
-                top: false,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    color: Colors.transparent,
-                  ),
-                  child: TabBar(
-                    dividerColor: Colors.transparent,
-                    controller: tabController,
-                    labelColor: const Color(0xFF2C2C2C),
-                    onTap: (index) {
-                      tabsRouter.setActiveIndex(index);
-                    },
-                    unselectedLabelColor: const Color(0xFF717171),
-                    labelStyle: const TextStyle(
-                      color: Color(0xFF2C2C2C),
-                      fontSize: 11,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
+              title: Text(
+                'FinStat',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ),
+            drawer: CustomDrawer(),
+            body: Column(
+              children: [
+                Expanded(child: child),
+                SafeArea(
+                  top: false,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(16)),
+                      color: Colors.transparent,
                     ),
-                    indicator: const BoxDecoration(color: Colors.transparent),
-                    labelPadding: EdgeInsets.zero,
-                    tabs: _getTabs(context)
-                        .asMap()
-                        .entries
-                        .map(
-                          (item) => Tab(
-                            icon: item.value.icon,
-                            text: item.value.label,
-                          ),
-                        )
-                        .toList(),
+                    child: TabBar(
+                      dividerColor: Colors.transparent,
+                      controller: tabController,
+                      labelColor: const Color(0xFF2C2C2C),
+                      onTap: (index) {
+                        tabsRouter.setActiveIndex(index);
+                      },
+                      unselectedLabelColor: const Color(0xFF717171),
+                      labelStyle: const TextStyle(
+                        color: Color(0xFF2C2C2C),
+                        fontSize: 11,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                      ),
+                      indicator: const BoxDecoration(color: Colors.transparent),
+                      labelPadding: EdgeInsets.zero,
+                      tabs: _getTabs(context)
+                          .asMap()
+                          .entries
+                          .map(
+                            (item) => Tab(
+                              icon: item.value.icon,
+                              text: item.value.label,
+                            ),
+                          )
+                          .toList(),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserDto {
 
-@JsonKey(name: 'name', defaultValue: '') String get name;@JsonKey(name: 'email', defaultValue: '') String get email;@JsonKey(name: 'loginMethod', defaultValue: '') String get loginMethod;
+@JsonKey(name: 'fullname', defaultValue: '') String get fullname;@JsonKey(name: 'email', defaultValue: '') String get email;@JsonKey(name: 'loginMethod', defaultValue: '') String get loginMethod;
 /// Create a copy of UserDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UserDtoCopyWith<UserDto> get copyWith => _$UserDtoCopyWithImpl<UserDto>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserDto&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.loginMethod, loginMethod) || other.loginMethod == loginMethod));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserDto&&(identical(other.fullname, fullname) || other.fullname == fullname)&&(identical(other.email, email) || other.email == email)&&(identical(other.loginMethod, loginMethod) || other.loginMethod == loginMethod));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,email,loginMethod);
+int get hashCode => Object.hash(runtimeType,fullname,email,loginMethod);
 
 @override
 String toString() {
-  return 'UserDto(name: $name, email: $email, loginMethod: $loginMethod)';
+  return 'UserDto(fullname: $fullname, email: $email, loginMethod: $loginMethod)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $UserDtoCopyWith<$Res>  {
   factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) _then) = _$UserDtoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'name', defaultValue: '') String name,@JsonKey(name: 'email', defaultValue: '') String email,@JsonKey(name: 'loginMethod', defaultValue: '') String loginMethod
+@JsonKey(name: 'fullname', defaultValue: '') String fullname,@JsonKey(name: 'email', defaultValue: '') String email,@JsonKey(name: 'loginMethod', defaultValue: '') String loginMethod
 });
 
 
@@ -65,9 +65,9 @@ class _$UserDtoCopyWithImpl<$Res>
 
 /// Create a copy of UserDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? email = null,Object? loginMethod = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? fullname = null,Object? email = null,Object? loginMethod = null,}) {
   return _then(_self.copyWith(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+fullname: null == fullname ? _self.fullname : fullname // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,loginMethod: null == loginMethod ? _self.loginMethod : loginMethod // ignore: cast_nullable_to_non_nullable
 as String,
@@ -155,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'name', defaultValue: '')  String name, @JsonKey(name: 'email', defaultValue: '')  String email, @JsonKey(name: 'loginMethod', defaultValue: '')  String loginMethod)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'fullname', defaultValue: '')  String fullname, @JsonKey(name: 'email', defaultValue: '')  String email, @JsonKey(name: 'loginMethod', defaultValue: '')  String loginMethod)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserDto() when $default != null:
-return $default(_that.name,_that.email,_that.loginMethod);case _:
+return $default(_that.fullname,_that.email,_that.loginMethod);case _:
   return orElse();
 
 }
@@ -176,10 +176,10 @@ return $default(_that.name,_that.email,_that.loginMethod);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'name', defaultValue: '')  String name, @JsonKey(name: 'email', defaultValue: '')  String email, @JsonKey(name: 'loginMethod', defaultValue: '')  String loginMethod)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'fullname', defaultValue: '')  String fullname, @JsonKey(name: 'email', defaultValue: '')  String email, @JsonKey(name: 'loginMethod', defaultValue: '')  String loginMethod)  $default,) {final _that = this;
 switch (_that) {
 case _UserDto():
-return $default(_that.name,_that.email,_that.loginMethod);case _:
+return $default(_that.fullname,_that.email,_that.loginMethod);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +196,10 @@ return $default(_that.name,_that.email,_that.loginMethod);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'name', defaultValue: '')  String name, @JsonKey(name: 'email', defaultValue: '')  String email, @JsonKey(name: 'loginMethod', defaultValue: '')  String loginMethod)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'fullname', defaultValue: '')  String fullname, @JsonKey(name: 'email', defaultValue: '')  String email, @JsonKey(name: 'loginMethod', defaultValue: '')  String loginMethod)?  $default,) {final _that = this;
 switch (_that) {
 case _UserDto() when $default != null:
-return $default(_that.name,_that.email,_that.loginMethod);case _:
+return $default(_that.fullname,_that.email,_that.loginMethod);case _:
   return null;
 
 }
@@ -211,10 +211,10 @@ return $default(_that.name,_that.email,_that.loginMethod);case _:
 @JsonSerializable()
 
 class _UserDto extends UserDto {
-  const _UserDto({@JsonKey(name: 'name', defaultValue: '') required this.name, @JsonKey(name: 'email', defaultValue: '') required this.email, @JsonKey(name: 'loginMethod', defaultValue: '') required this.loginMethod}): super._();
+  const _UserDto({@JsonKey(name: 'fullname', defaultValue: '') required this.fullname, @JsonKey(name: 'email', defaultValue: '') required this.email, @JsonKey(name: 'loginMethod', defaultValue: '') required this.loginMethod}): super._();
   factory _UserDto.fromJson(Map<String, dynamic> json) => _$UserDtoFromJson(json);
 
-@override@JsonKey(name: 'name', defaultValue: '') final  String name;
+@override@JsonKey(name: 'fullname', defaultValue: '') final  String fullname;
 @override@JsonKey(name: 'email', defaultValue: '') final  String email;
 @override@JsonKey(name: 'loginMethod', defaultValue: '') final  String loginMethod;
 
@@ -231,16 +231,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserDto&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.loginMethod, loginMethod) || other.loginMethod == loginMethod));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserDto&&(identical(other.fullname, fullname) || other.fullname == fullname)&&(identical(other.email, email) || other.email == email)&&(identical(other.loginMethod, loginMethod) || other.loginMethod == loginMethod));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,email,loginMethod);
+int get hashCode => Object.hash(runtimeType,fullname,email,loginMethod);
 
 @override
 String toString() {
-  return 'UserDto(name: $name, email: $email, loginMethod: $loginMethod)';
+  return 'UserDto(fullname: $fullname, email: $email, loginMethod: $loginMethod)';
 }
 
 
@@ -251,7 +251,7 @@ abstract mixin class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   factory _$UserDtoCopyWith(_UserDto value, $Res Function(_UserDto) _then) = __$UserDtoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'name', defaultValue: '') String name,@JsonKey(name: 'email', defaultValue: '') String email,@JsonKey(name: 'loginMethod', defaultValue: '') String loginMethod
+@JsonKey(name: 'fullname', defaultValue: '') String fullname,@JsonKey(name: 'email', defaultValue: '') String email,@JsonKey(name: 'loginMethod', defaultValue: '') String loginMethod
 });
 
 
@@ -268,9 +268,9 @@ class __$UserDtoCopyWithImpl<$Res>
 
 /// Create a copy of UserDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? email = null,Object? loginMethod = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? fullname = null,Object? email = null,Object? loginMethod = null,}) {
   return _then(_UserDto(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+fullname: null == fullname ? _self.fullname : fullname // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,loginMethod: null == loginMethod ? _self.loginMethod : loginMethod // ignore: cast_nullable_to_non_nullable
 as String,
