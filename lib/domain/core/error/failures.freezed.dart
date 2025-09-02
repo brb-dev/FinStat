@@ -86,7 +86,7 @@ extension ValueFailurePatterns<T> on ValueFailure<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( Empty<T> value)?  empty,TResult Function( IsEmpty<T> value)?  isEmpty,TResult Function( ExceedingLength<T> value)?  exceedingLength,TResult Function( SubceedLength<T> value)?  subceedLength,TResult Function( InvalidEmail<T> value)?  invalidEmail,TResult Function( MatchNewPassword<T> value)?  mustMatchNewPassword,TResult Function( OneUpperCase<T> value)?  mustOneUpperCaseCharacter,TResult Function( OneNumeric<T> value)?  mustOneNumericCharacter,TResult Function( OneSpecial<T> value)?  mustOneSpecialCharacter,TResult Function( InvalidDOB<T> value)?  invalidDOB,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( Empty<T> value)?  empty,TResult Function( IsEmpty<T> value)?  isEmpty,TResult Function( ExceedingLength<T> value)?  exceedingLength,TResult Function( SubceedLength<T> value)?  subceedLength,TResult Function( InvalidEmail<T> value)?  invalidEmail,TResult Function( MatchNewPassword<T> value)?  mustMatchNewPassword,TResult Function( OneUpperCase<T> value)?  mustOneUpperCaseCharacter,TResult Function( OneNumeric<T> value)?  mustOneNumericCharacter,TResult Function( OneSpecial<T> value)?  mustOneSpecialCharacter,TResult Function( InvalidDOB<T> value)?  invalidDOB,TResult Function( AgeNotThirteen<T> value)?  ageNotThirteen,TResult Function( InvalidDateValue<T> value)?  invalidDateValue,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case Empty() when empty != null:
@@ -99,7 +99,9 @@ return mustMatchNewPassword(_that);case OneUpperCase() when mustOneUpperCaseChar
 return mustOneUpperCaseCharacter(_that);case OneNumeric() when mustOneNumericCharacter != null:
 return mustOneNumericCharacter(_that);case OneSpecial() when mustOneSpecialCharacter != null:
 return mustOneSpecialCharacter(_that);case InvalidDOB() when invalidDOB != null:
-return invalidDOB(_that);case _:
+return invalidDOB(_that);case AgeNotThirteen() when ageNotThirteen != null:
+return ageNotThirteen(_that);case InvalidDateValue() when invalidDateValue != null:
+return invalidDateValue(_that);case _:
   return orElse();
 
 }
@@ -117,7 +119,7 @@ return invalidDOB(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( Empty<T> value)  empty,required TResult Function( IsEmpty<T> value)  isEmpty,required TResult Function( ExceedingLength<T> value)  exceedingLength,required TResult Function( SubceedLength<T> value)  subceedLength,required TResult Function( InvalidEmail<T> value)  invalidEmail,required TResult Function( MatchNewPassword<T> value)  mustMatchNewPassword,required TResult Function( OneUpperCase<T> value)  mustOneUpperCaseCharacter,required TResult Function( OneNumeric<T> value)  mustOneNumericCharacter,required TResult Function( OneSpecial<T> value)  mustOneSpecialCharacter,required TResult Function( InvalidDOB<T> value)  invalidDOB,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( Empty<T> value)  empty,required TResult Function( IsEmpty<T> value)  isEmpty,required TResult Function( ExceedingLength<T> value)  exceedingLength,required TResult Function( SubceedLength<T> value)  subceedLength,required TResult Function( InvalidEmail<T> value)  invalidEmail,required TResult Function( MatchNewPassword<T> value)  mustMatchNewPassword,required TResult Function( OneUpperCase<T> value)  mustOneUpperCaseCharacter,required TResult Function( OneNumeric<T> value)  mustOneNumericCharacter,required TResult Function( OneSpecial<T> value)  mustOneSpecialCharacter,required TResult Function( InvalidDOB<T> value)  invalidDOB,required TResult Function( AgeNotThirteen<T> value)  ageNotThirteen,required TResult Function( InvalidDateValue<T> value)  invalidDateValue,}){
 final _that = this;
 switch (_that) {
 case Empty():
@@ -130,7 +132,9 @@ return mustMatchNewPassword(_that);case OneUpperCase():
 return mustOneUpperCaseCharacter(_that);case OneNumeric():
 return mustOneNumericCharacter(_that);case OneSpecial():
 return mustOneSpecialCharacter(_that);case InvalidDOB():
-return invalidDOB(_that);case _:
+return invalidDOB(_that);case AgeNotThirteen():
+return ageNotThirteen(_that);case InvalidDateValue():
+return invalidDateValue(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -147,7 +151,7 @@ return invalidDOB(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( Empty<T> value)?  empty,TResult? Function( IsEmpty<T> value)?  isEmpty,TResult? Function( ExceedingLength<T> value)?  exceedingLength,TResult? Function( SubceedLength<T> value)?  subceedLength,TResult? Function( InvalidEmail<T> value)?  invalidEmail,TResult? Function( MatchNewPassword<T> value)?  mustMatchNewPassword,TResult? Function( OneUpperCase<T> value)?  mustOneUpperCaseCharacter,TResult? Function( OneNumeric<T> value)?  mustOneNumericCharacter,TResult? Function( OneSpecial<T> value)?  mustOneSpecialCharacter,TResult? Function( InvalidDOB<T> value)?  invalidDOB,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( Empty<T> value)?  empty,TResult? Function( IsEmpty<T> value)?  isEmpty,TResult? Function( ExceedingLength<T> value)?  exceedingLength,TResult? Function( SubceedLength<T> value)?  subceedLength,TResult? Function( InvalidEmail<T> value)?  invalidEmail,TResult? Function( MatchNewPassword<T> value)?  mustMatchNewPassword,TResult? Function( OneUpperCase<T> value)?  mustOneUpperCaseCharacter,TResult? Function( OneNumeric<T> value)?  mustOneNumericCharacter,TResult? Function( OneSpecial<T> value)?  mustOneSpecialCharacter,TResult? Function( InvalidDOB<T> value)?  invalidDOB,TResult? Function( AgeNotThirteen<T> value)?  ageNotThirteen,TResult? Function( InvalidDateValue<T> value)?  invalidDateValue,}){
 final _that = this;
 switch (_that) {
 case Empty() when empty != null:
@@ -160,7 +164,9 @@ return mustMatchNewPassword(_that);case OneUpperCase() when mustOneUpperCaseChar
 return mustOneUpperCaseCharacter(_that);case OneNumeric() when mustOneNumericCharacter != null:
 return mustOneNumericCharacter(_that);case OneSpecial() when mustOneSpecialCharacter != null:
 return mustOneSpecialCharacter(_that);case InvalidDOB() when invalidDOB != null:
-return invalidDOB(_that);case _:
+return invalidDOB(_that);case AgeNotThirteen() when ageNotThirteen != null:
+return ageNotThirteen(_that);case InvalidDateValue() when invalidDateValue != null:
+return invalidDateValue(_that);case _:
   return null;
 
 }
@@ -177,7 +183,7 @@ return invalidDOB(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( T failedValue)?  empty,TResult Function( T failedValue)?  isEmpty,TResult Function( T failedValue,  int max)?  exceedingLength,TResult Function( T failedValue,  int min)?  subceedLength,TResult Function( T failedValue)?  invalidEmail,TResult Function( T failedValue)?  mustMatchNewPassword,TResult Function( T failedValue)?  mustOneUpperCaseCharacter,TResult Function( T failedValue)?  mustOneNumericCharacter,TResult Function( T failedValue)?  mustOneSpecialCharacter,TResult Function( T failedValue)?  invalidDOB,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( T failedValue)?  empty,TResult Function( T failedValue)?  isEmpty,TResult Function( T failedValue,  int max)?  exceedingLength,TResult Function( T failedValue,  int min)?  subceedLength,TResult Function( T failedValue)?  invalidEmail,TResult Function( T failedValue)?  mustMatchNewPassword,TResult Function( T failedValue)?  mustOneUpperCaseCharacter,TResult Function( T failedValue)?  mustOneNumericCharacter,TResult Function( T failedValue)?  mustOneSpecialCharacter,TResult Function( T failedValue)?  invalidDOB,TResult Function( T failedValue)?  ageNotThirteen,TResult Function( T failedValue)?  invalidDateValue,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case Empty() when empty != null:
 return empty(_that.failedValue);case IsEmpty() when isEmpty != null:
@@ -189,7 +195,9 @@ return mustMatchNewPassword(_that.failedValue);case OneUpperCase() when mustOneU
 return mustOneUpperCaseCharacter(_that.failedValue);case OneNumeric() when mustOneNumericCharacter != null:
 return mustOneNumericCharacter(_that.failedValue);case OneSpecial() when mustOneSpecialCharacter != null:
 return mustOneSpecialCharacter(_that.failedValue);case InvalidDOB() when invalidDOB != null:
-return invalidDOB(_that.failedValue);case _:
+return invalidDOB(_that.failedValue);case AgeNotThirteen() when ageNotThirteen != null:
+return ageNotThirteen(_that.failedValue);case InvalidDateValue() when invalidDateValue != null:
+return invalidDateValue(_that.failedValue);case _:
   return orElse();
 
 }
@@ -207,7 +215,7 @@ return invalidDOB(_that.failedValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( T failedValue)  empty,required TResult Function( T failedValue)  isEmpty,required TResult Function( T failedValue,  int max)  exceedingLength,required TResult Function( T failedValue,  int min)  subceedLength,required TResult Function( T failedValue)  invalidEmail,required TResult Function( T failedValue)  mustMatchNewPassword,required TResult Function( T failedValue)  mustOneUpperCaseCharacter,required TResult Function( T failedValue)  mustOneNumericCharacter,required TResult Function( T failedValue)  mustOneSpecialCharacter,required TResult Function( T failedValue)  invalidDOB,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( T failedValue)  empty,required TResult Function( T failedValue)  isEmpty,required TResult Function( T failedValue,  int max)  exceedingLength,required TResult Function( T failedValue,  int min)  subceedLength,required TResult Function( T failedValue)  invalidEmail,required TResult Function( T failedValue)  mustMatchNewPassword,required TResult Function( T failedValue)  mustOneUpperCaseCharacter,required TResult Function( T failedValue)  mustOneNumericCharacter,required TResult Function( T failedValue)  mustOneSpecialCharacter,required TResult Function( T failedValue)  invalidDOB,required TResult Function( T failedValue)  ageNotThirteen,required TResult Function( T failedValue)  invalidDateValue,}) {final _that = this;
 switch (_that) {
 case Empty():
 return empty(_that.failedValue);case IsEmpty():
@@ -219,7 +227,9 @@ return mustMatchNewPassword(_that.failedValue);case OneUpperCase():
 return mustOneUpperCaseCharacter(_that.failedValue);case OneNumeric():
 return mustOneNumericCharacter(_that.failedValue);case OneSpecial():
 return mustOneSpecialCharacter(_that.failedValue);case InvalidDOB():
-return invalidDOB(_that.failedValue);case _:
+return invalidDOB(_that.failedValue);case AgeNotThirteen():
+return ageNotThirteen(_that.failedValue);case InvalidDateValue():
+return invalidDateValue(_that.failedValue);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -236,7 +246,7 @@ return invalidDOB(_that.failedValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( T failedValue)?  empty,TResult? Function( T failedValue)?  isEmpty,TResult? Function( T failedValue,  int max)?  exceedingLength,TResult? Function( T failedValue,  int min)?  subceedLength,TResult? Function( T failedValue)?  invalidEmail,TResult? Function( T failedValue)?  mustMatchNewPassword,TResult? Function( T failedValue)?  mustOneUpperCaseCharacter,TResult? Function( T failedValue)?  mustOneNumericCharacter,TResult? Function( T failedValue)?  mustOneSpecialCharacter,TResult? Function( T failedValue)?  invalidDOB,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( T failedValue)?  empty,TResult? Function( T failedValue)?  isEmpty,TResult? Function( T failedValue,  int max)?  exceedingLength,TResult? Function( T failedValue,  int min)?  subceedLength,TResult? Function( T failedValue)?  invalidEmail,TResult? Function( T failedValue)?  mustMatchNewPassword,TResult? Function( T failedValue)?  mustOneUpperCaseCharacter,TResult? Function( T failedValue)?  mustOneNumericCharacter,TResult? Function( T failedValue)?  mustOneSpecialCharacter,TResult? Function( T failedValue)?  invalidDOB,TResult? Function( T failedValue)?  ageNotThirteen,TResult? Function( T failedValue)?  invalidDateValue,}) {final _that = this;
 switch (_that) {
 case Empty() when empty != null:
 return empty(_that.failedValue);case IsEmpty() when isEmpty != null:
@@ -248,7 +258,9 @@ return mustMatchNewPassword(_that.failedValue);case OneUpperCase() when mustOneU
 return mustOneUpperCaseCharacter(_that.failedValue);case OneNumeric() when mustOneNumericCharacter != null:
 return mustOneNumericCharacter(_that.failedValue);case OneSpecial() when mustOneSpecialCharacter != null:
 return mustOneSpecialCharacter(_that.failedValue);case InvalidDOB() when invalidDOB != null:
-return invalidDOB(_that.failedValue);case _:
+return invalidDOB(_that.failedValue);case AgeNotThirteen() when ageNotThirteen != null:
+return ageNotThirteen(_that.failedValue);case InvalidDateValue() when invalidDateValue != null:
+return invalidDateValue(_that.failedValue);case _:
   return null;
 
 }
@@ -912,6 +924,138 @@ class _$InvalidDOBCopyWithImpl<T,$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? failedValue = freezed,}) {
   return _then(InvalidDOB<T>(
+failedValue: freezed == failedValue ? _self.failedValue : failedValue // ignore: cast_nullable_to_non_nullable
+as T,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class AgeNotThirteen<T> implements ValueFailure<T> {
+  const AgeNotThirteen({required this.failedValue});
+  
+
+@override final  T failedValue;
+
+/// Create a copy of ValueFailure
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AgeNotThirteenCopyWith<T, AgeNotThirteen<T>> get copyWith => _$AgeNotThirteenCopyWithImpl<T, AgeNotThirteen<T>>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgeNotThirteen<T>&&const DeepCollectionEquality().equals(other.failedValue, failedValue));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(failedValue));
+
+@override
+String toString() {
+  return 'ValueFailure<$T>.ageNotThirteen(failedValue: $failedValue)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AgeNotThirteenCopyWith<T,$Res> implements $ValueFailureCopyWith<T, $Res> {
+  factory $AgeNotThirteenCopyWith(AgeNotThirteen<T> value, $Res Function(AgeNotThirteen<T>) _then) = _$AgeNotThirteenCopyWithImpl;
+@override @useResult
+$Res call({
+ T failedValue
+});
+
+
+
+
+}
+/// @nodoc
+class _$AgeNotThirteenCopyWithImpl<T,$Res>
+    implements $AgeNotThirteenCopyWith<T, $Res> {
+  _$AgeNotThirteenCopyWithImpl(this._self, this._then);
+
+  final AgeNotThirteen<T> _self;
+  final $Res Function(AgeNotThirteen<T>) _then;
+
+/// Create a copy of ValueFailure
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? failedValue = freezed,}) {
+  return _then(AgeNotThirteen<T>(
+failedValue: freezed == failedValue ? _self.failedValue : failedValue // ignore: cast_nullable_to_non_nullable
+as T,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class InvalidDateValue<T> implements ValueFailure<T> {
+  const InvalidDateValue({required this.failedValue});
+  
+
+@override final  T failedValue;
+
+/// Create a copy of ValueFailure
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$InvalidDateValueCopyWith<T, InvalidDateValue<T>> get copyWith => _$InvalidDateValueCopyWithImpl<T, InvalidDateValue<T>>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InvalidDateValue<T>&&const DeepCollectionEquality().equals(other.failedValue, failedValue));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(failedValue));
+
+@override
+String toString() {
+  return 'ValueFailure<$T>.invalidDateValue(failedValue: $failedValue)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $InvalidDateValueCopyWith<T,$Res> implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidDateValueCopyWith(InvalidDateValue<T> value, $Res Function(InvalidDateValue<T>) _then) = _$InvalidDateValueCopyWithImpl;
+@override @useResult
+$Res call({
+ T failedValue
+});
+
+
+
+
+}
+/// @nodoc
+class _$InvalidDateValueCopyWithImpl<T,$Res>
+    implements $InvalidDateValueCopyWith<T, $Res> {
+  _$InvalidDateValueCopyWithImpl(this._self, this._then);
+
+  final InvalidDateValue<T> _self;
+  final $Res Function(InvalidDateValue<T>) _then;
+
+/// Create a copy of ValueFailure
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? failedValue = freezed,}) {
+  return _then(InvalidDateValue<T>(
 failedValue: freezed == failedValue ? _self.failedValue : failedValue // ignore: cast_nullable_to_non_nullable
 as T,
   ));

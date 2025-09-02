@@ -10,17 +10,19 @@ class FieldClazz<T> {
   final Function(String, T) onDone;
   final bool Function(dynamic) isEnabled;
   final bool Function(T)? shouldObscureText;
-  final String? Function(dynamic)? getInitialValue;
   final TextInputType? textInputType;
   final List<TextInputFormatter>? inputFormatters;
   final String hintText;
   final TextStyle? hintStyle;
   final BoxConstraints? suffixConstraint;
   final Widget Function(dynamic)? getSuffix;
+  final Function()? onTap;
   final bool isDate;
 
   final BorderSide Function(dynamic) enabledBorderSide;
   final TextStyle Function(dynamic) labelStyle;
+
+  final bool readOnly;
 
   final bool shouldShowBottomText;
   final String? bottomText;
@@ -35,7 +37,6 @@ class FieldClazz<T> {
     required this.onDone,
     required this.isEnabled,
     required this.hintText,
-    this.getInitialValue,
     this.hintStyle,
     this.textInputType,
     this.inputFormatters,
@@ -46,6 +47,8 @@ class FieldClazz<T> {
     this.bottomText,
     this.bottomTextCondition,
     this.isDate = false,
+    this.readOnly = false,
+    this.onTap,
     required this.enabledBorderSide,
     required this.labelStyle,
   });

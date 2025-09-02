@@ -52,6 +52,16 @@ class StringValue extends ValueObject<String> {
   const StringValue._(this.value);
 }
 
+class Amount extends ValueObject<double> {
+  @override
+  final Either<ValueFailure<double>, double> value;
+
+  factory Amount(double input) =>
+      Amount._(validateDoubleIsInAmountFormat(input));
+
+  const Amount._(this.value);
+}
+
 class EmailAddress extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -99,8 +109,23 @@ class DOB extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory DOB(String input) {
-    return DOB._(validateStringNotEmpty(input));
+    return DOB._(
+      validateStringNotEmpty(
+        input,
+      ).flatMap(validateDOB).flatMap(ageIsAtleast13),
+    );
   }
 
   const DOB._(this.value);
+}
+
+class DateTimeStringValue extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory DateTimeStringValue(String input) {
+    return DateTimeStringValue._(validateDateString(input));
+  }
+
+  const DateTimeStringValue._(this.value);
 }

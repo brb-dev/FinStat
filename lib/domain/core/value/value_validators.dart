@@ -1,10 +1,20 @@
 import 'package:dartz/dartz.dart';
+import 'package:finstat/presentation/core/utils/extensions/extension_util.dart';
+import 'package:intl/intl.dart';
 
 import '../error/failures.dart';
 import 'value_transformers.dart';
 
 Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   return input.isNotEmpty
+      ? right(input)
+      : left(ValueFailure.empty(failedValue: input));
+}
+
+Either<ValueFailure<double>, double> validateDoubleIsInAmountFormat(
+  double input,
+) {
+  return input.isMoneyFormat
       ? right(input)
       : left(ValueFailure.empty(failedValue: input));
 }
@@ -62,8 +72,22 @@ Either<ValueFailure<String>, String> validateNewAndConfirmPassword(
       : left(ValueFailure.mustMatchNewPassword(failedValue: confirmPassword));
 }
 
+Either<ValueFailure<String>, String> ageIsAtleast13(String input) {
+  return isAgeDifferenceAtleastThirteen(input)
+      ? right(input)
+      : left(ValueFailure.ageNotThirteen(failedValue: input));
+}
+
 Either<ValueFailure<String>, String> validateStringIsEmpty(String input) {
   return input.isEmpty
       ? right(input)
       : left(ValueFailure.empty(failedValue: input));
+}
+
+Either<ValueFailure<String>, String> validateDateString(String input) {
+  final dateTime = DateFormat('dd/MM/yyyy').tryParse(input);
+
+  return dateTime != null
+      ? right(input)
+      : left(ValueFailure.invalidDateValue(failedValue: input));
 }

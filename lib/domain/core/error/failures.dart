@@ -27,4 +27,8 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
       OneSpecial<T>;
   const factory ValueFailure.invalidDOB({required T failedValue}) =
       InvalidDOB<T>;
+  const factory ValueFailure.ageNotThirteen({required T failedValue}) =
+      AgeNotThirteen<T>;
+  const factory ValueFailure.invalidDateValue({required T failedValue}) =
+      InvalidDateValue<T>;
 }

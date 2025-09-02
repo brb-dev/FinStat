@@ -8,14 +8,13 @@ extension TextFormFieldStyleHelper on CustomTextFormField {
   );
 }
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
     super.key,
     required this.fieldKey,
     this.alignment,
     this.width,
     this.boxDecoration,
-    this.controller,
     this.focusNode,
     this.autofocus = false,
     this.textStyle,
@@ -48,7 +47,6 @@ class CustomTextFormField extends StatelessWidget {
   final Alignment? alignment;
   final double? width;
   final BoxDecoration? boxDecoration;
-  final TextEditingController? controller;
   final FocusNode? focusNode;
   final bool? autofocus;
   final TextStyle? textStyle;
@@ -75,84 +73,103 @@ class CustomTextFormField extends StatelessWidget {
   final TextStyle labelStyle;
 
   @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: widget.initialValue);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return alignment != null
+    return widget.alignment != null
         ? Align(
-            alignment: alignment ?? Alignment.center,
+            alignment: widget.alignment ?? Alignment.center,
             child: textFormFieldWidget(context),
           )
         : textFormFieldWidget(context);
   }
 
   Widget textFormFieldWidget(BuildContext context) => TextFormField(
-    key: fieldKey,
-    initialValue: initialValue,
+    key: widget.fieldKey,
     cursorColor: FinstatColor.black,
     scrollPadding: EdgeInsets.only(
       bottom: MediaQuery.viewInsetsOf(context).bottom,
     ),
     autovalidateMode: AutovalidateMode.onUserInteraction,
-    controller: controller,
+    controller: _controller,
     onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
-    autofocus: autofocus!,
-    readOnly: readOnly,
-    onTap: () => onTap?.call(),
+    autofocus: widget.autofocus!,
+    readOnly: widget.readOnly,
+    onTap: () => widget.onTap?.call(),
     style: const TextStyle(
       color: Color(0xFF1E1E1E),
       fontSize: 16,
       fontFamily: 'Noto Sans',
       fontWeight: FontWeight.w400,
     ), // ?? theme.textTheme.bodyMedium,
-    obscureText: obscureText ?? false,
-    textInputAction: textInputAction,
-    keyboardType: textInputType,
-    maxLines: maxLines ?? 1,
+    obscureText: widget.obscureText ?? false,
+    textInputAction: widget.textInputAction,
+    keyboardType: widget.textInputType,
+    maxLines: widget.maxLines ?? 1,
     decoration: decoration,
-    validator: validator,
-    onChanged: onChanged,
+    validator: widget.validator,
+    onChanged: widget.onChanged,
   );
+
   InputDecoration get decoration => InputDecoration(
-    hintText: hintText ?? '',
-    hintStyle: hintStyle,
+    hintText: widget.hintText ?? '',
+    hintStyle: widget.hintStyle,
     floatingLabelBehavior: FloatingLabelBehavior.always,
-    labelText: labelText ?? '',
-    labelStyle: labelStyle,
-    prefixIcon: prefix,
-    prefixIconConstraints: prefixConstraints,
-    suffixIcon: suffix,
-    suffixIconConstraints: suffixConstraints,
+    labelText: widget.labelText ?? '',
+    labelStyle: widget.labelStyle,
+    prefixIcon: widget.prefix,
+    prefixIconConstraints: widget.prefixConstraints,
+    suffixIcon: widget.suffix,
+    suffixIconConstraints: widget.suffixConstraints,
     isDense: true,
     contentPadding:
-        contentPadding ??
+        widget.contentPadding ??
         const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
-    fillColor: fillColor ?? Colors.white,
-    filled: filled,
+    fillColor: widget.fillColor ?? Colors.white,
+    filled: widget.filled,
     border:
-        borderDecoration ??
+        widget.borderDecoration ??
         OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
-          borderSide: enableBorderSide,
+          borderSide: widget.enableBorderSide,
         ),
     enabledBorder:
-        borderDecoration ??
+        widget.borderDecoration ??
         OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
-          borderSide: enableBorderSide,
+          borderSide: widget.enableBorderSide,
         ),
     focusedBorder:
-        borderDecoration ??
+        widget.borderDecoration ??
         OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
           borderSide: BorderSide(color: FinstatColor.black, width: 1),
         ),
     errorBorder:
-        (borderDecoration ??
+        (widget.borderDecoration ??
                 OutlineInputBorder(borderRadius: BorderRadius.circular(4)))
             .copyWith(
               borderSide: const BorderSide(color: Color(0xFF92278F), width: 1),
             ),
     focusedErrorBorder:
-        (borderDecoration ??
+        (widget.borderDecoration ??
                 OutlineInputBorder(borderRadius: BorderRadius.circular(4)))
             .copyWith(
               borderSide: const BorderSide(color: Color(0xFF92278F), width: 1),

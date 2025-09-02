@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:finstat/presentation/core/routing/finstat_router.gr.dart';
+import 'package:finstat/presentation/core/theme/finstat_color.dart';
 import 'package:finstat/presentation/core/widgets/drawer/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -74,6 +75,7 @@ class _CustomTabBarState extends State<_CustomTabBar>
                 SafeArea(
                   top: false,
                   child: Container(
+                    height: kToolbarHeight,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(16)),
                       color: Colors.transparent,
@@ -92,7 +94,7 @@ class _CustomTabBarState extends State<_CustomTabBar>
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
                       ),
-                      indicator: const BoxDecoration(color: Colors.transparent),
+                      indicator: _TopIndicator(),
                       labelPadding: EdgeInsets.zero,
                       tabs: _getTabs(context)
                           .asMap()
@@ -112,6 +114,44 @@ class _CustomTabBarState extends State<_CustomTabBar>
           );
         },
       ),
+    );
+  }
+}
+
+class _TopIndicator extends Decoration {
+  @override
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
+    return _TopIndicatorBox();
+  }
+}
+
+class _TopIndicatorBox extends BoxPainter {
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration cfg) {
+    final paint = Paint()
+      ..color = FinstatColor.black
+      ..isAntiAlias = true;
+
+    final xPos = offset.dx + cfg.size!.width / 2;
+
+    canvas.drawRRect(
+      RRect.fromRectAndCorners(
+        Rect.fromLTRB(
+          xPos - cfg.size!.width / 2,
+          -6,
+          xPos + cfg.size!.width / 2,
+          2,
+        ),
+        bottomLeft: const Radius.circular(8.0),
+        bottomRight: const Radius.circular(8.0),
+      ),
+      paint,
+    );
+
+    canvas.drawLine(
+      Offset(offset.dx + 3, offset.dy),
+      Offset(cfg.size!.width + offset.dx - 3, 0),
+      paint,
     );
   }
 }

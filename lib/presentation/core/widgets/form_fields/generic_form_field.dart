@@ -19,10 +19,9 @@ class GenericFormField<B extends StateStreamable<S>, S>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomTextFormField(
-              initialValue: clazz.getInitialValue != null
-                  ? clazz.getInitialValue!(state)
-                  : null,
+              onTap: clazz.onTap,
               fieldKey: clazz.fieldKey,
+
               labelText: clazz.labelText,
               validator: (text) => clazz.validator(text, state),
               onChanged: (value) => clazz.onChange(value),
@@ -35,6 +34,7 @@ class GenericFormField<B extends StateStreamable<S>, S>
               suffix: clazz.getSuffix!(state),
               enableBorderSide: clazz.enabledBorderSide(state),
               labelStyle: clazz.labelStyle(state),
+              readOnly: clazz.readOnly,
             ),
             if (clazz.shouldShowBottomText && clazz.bottomTextCondition!(state))
               Padding(

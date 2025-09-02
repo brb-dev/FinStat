@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 bool isMinCharacter({required String input, required int minLength}) =>
     hasLengthEqualOrGreaterThanN(input, minLength);
 
@@ -31,4 +33,19 @@ bool isNotEmpty(String text) {
   ); // matches any string is not empty or white space
 
   return !pattern.hasMatch(text);
+}
+
+DateTime _getDobDate(String dob) {
+  return DateFormat('MM/dd/yyyy').parse(dob);
+}
+
+bool isAgeDifferenceAtleastThirteen(String input) {
+  final now = DateTime.now();
+  final dob = _getDobDate(input);
+  var age = now.year - dob.year;
+  if (now.month < dob.month || (now.month == dob.month && now.day < dob.day)) {
+    age--;
+  }
+
+  return age >= 13;
 }
